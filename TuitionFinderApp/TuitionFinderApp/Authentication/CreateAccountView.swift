@@ -141,9 +141,11 @@ struct CreateAccountView: View {
                         .font(.title3)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity)
+                        //.frame(height: 30)
                         .padding()
                         .background(Color.blue)
                         .cornerRadius(20)
+                        
                 }
                 .padding(.top, 20)
                 
