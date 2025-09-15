@@ -57,7 +57,23 @@ struct LoginView: View {
                Button(action: {
                    // Action goes here
                }) {
-                   Text("Login")
+                   Text("Login 1")
+                       .font(.headline)
+                       .fontWeight(.semibold)
+                       .foregroundColor(.white)
+                       .frame(maxWidth: .infinity)
+                       .frame(height: 50)
+                       .background(Color.blue)
+                       .cornerRadius(25)
+               }
+               .padding(.horizontal, 40)
+               //------Tempory Change-----
+               //---Add another login btn
+               
+               Button(action: {
+                   // Action goes here
+               }) {
+                   Text("Login 2")
                        .font(.headline)
                        .fontWeight(.semibold)
                        .foregroundColor(.white)

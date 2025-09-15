@@ -12,8 +12,16 @@ struct TuitionFinderAppApp: App {
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            WelcomeView()
+            //WelcomeView()
             //LoginView()
+            MainView()
+            
+            //HomeView()
+            
+            
+            
+            
         }
+            
     }
 }
