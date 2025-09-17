@@ -15,8 +15,15 @@ struct TuitionFinderAppApp: App {
             //WelcomeView()
             //LoginView()
             //MainView()
-            ClassDetailsView()
+            //ClassDetailsView()
             //HomeView()
+            //TutorDashBoardView()
+            //TutorClassesView()
+            //TutorSheduleView()
+            //TutorProfileView()
+            TutorMainScreenView()
+            
+            
             
             
             
