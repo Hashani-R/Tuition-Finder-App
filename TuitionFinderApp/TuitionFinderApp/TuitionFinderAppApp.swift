@@ -21,7 +21,8 @@ struct TuitionFinderAppApp: App {
             //TutorClassesView()
             //TutorSheduleView()
             //TutorProfileView()
-            TutorMainScreenView()
+            //TutorMainScreenView()
+            BioMetricLoginView()
             
             
             

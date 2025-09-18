@@ -1,19 +1,16 @@
 import SwiftUI
+import LocalAuthentication
 
+//Struct01
 struct BioMetricLoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
+    @State private var goToFaceIDImplement = false
     
     var body: some View {
-        
         NavigationStack {
-            
-            
             VStack {
-                //Spacer().frame(height: 20)
-                
-                
                 Image("LoginImage")
                     .resizable()
                     .scaledToFit()
@@ -21,7 +18,6 @@ struct BioMetricLoginView: View {
                     .padding(.horizontal, 10)
                 
                 Spacer().frame(height: 10)
-                
                 
                 Text("Sign In")
                     .font(.title)
@@ -31,7 +27,6 @@ struct BioMetricLoginView: View {
                 
                 Spacer().frame(height: 25)
                 
-                
                 TextField("Type your Email", text: $email)
                     .padding()
                     .frame(width: 320, height: 45)
@@ -39,10 +34,8 @@ struct BioMetricLoginView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 25)
                             .stroke(Color.blue.opacity(0.7), lineWidth: 1)
-                        
                     )
                     .padding(.horizontal, 40)
-                
                 
                 SecureField("Password", text: $password)
                     .padding()
@@ -56,7 +49,6 @@ struct BioMetricLoginView: View {
                     .padding(.top, 10)
                 
                 Spacer().frame(height: 20)
-                
                 
                 Button(action: {
                     // Action goes here
@@ -74,19 +66,75 @@ struct BioMetricLoginView: View {
                 
                 Spacer().frame(height: 20)
                 
-                Button("Use Face ID to login") {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+            
+                Button(action: {
+                    goToFaceIDImplement = true
+                }) {
+                    Text("Use your faceID to login")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.blue)
                 }
-                .font(.headline)
-                .fontWeight(.semibold)
-                
-                
             }
             Spacer().frame(height: 20)
+            
+           
+            .navigationDestination(isPresented: $goToFaceIDImplement) {
+                FaceIDImplement()
+            }
         }
     }
 }
 
 #Preview {
     BioMetricLoginView()
+}
+
+//Struct02
+struct FaceIDImplement: View {
+    @State private var isUnlocked = false
+    
+    var body: some View {
+        VStack {
+            if isUnlocked {
+                Text("Unlocked!")
+                    .font(.largeTitle)
+                    .foregroundColor(.green)
+            } else {
+                Text("Unlock with Face ID")
+                    .font(.headline)
+                    .foregroundColor(.red)
+            }
+        }
+        .onAppear(perform: authenticate)
+    }
+    
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+        
+        // Checking the availability of FaceID or touchID
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "We need to unlock your data"
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                DispatchQueue.main.async {
+                    if success {
+                        self.isUnlocked = true
+                        print("Authenticated successfully!")
+                    } else {
+                        self.isUnlocked = false
+                        print("Authentication failed!")
+                    }
+                }
+            }
+        } else {
+            
+            print("Biometric authentication not available")
+        }
+    }
+}
+
+#Preview {
+    FaceIDImplement()
 }
