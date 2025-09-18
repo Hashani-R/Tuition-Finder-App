@@ -16,13 +16,16 @@ struct TuitionFinderAppApp: App {
             //LoginView()
             //MainView()
             //ClassDetailsView()
+            
             //HomeView()
             //TutorDashBoardView()
-            //TutorClassesView()
+            TutorClassesView()
+            //AddClassView()
             //TutorSheduleView()
             //TutorProfileView()
             //TutorMainScreenView()
-            BioMetricLoginView()
+            //BioMetricLoginView()
+          
             
             
             

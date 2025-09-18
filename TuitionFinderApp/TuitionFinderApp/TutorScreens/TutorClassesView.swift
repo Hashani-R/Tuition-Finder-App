@@ -24,60 +24,72 @@ struct TutorClassesView: View {
                   imageName: "sampleImage")
     ]
     
+    @State private var goToAddClassView = false
+    
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            VStack(alignment: .leading) {
-                // Title
-                Text("Classes")
-                    .font(.title)
-                    .bold()
-                    .padding(.horizontal)
-                    .padding(.top)
-                
-                // Class List
-                List(classes) { item in
-                    HStack {
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text(item.title)
-                                .font(.headline)
-                                .bold()
-                            Text(item.location)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                            Text(item.schedule)
-                                .font(.footnote)
-                                .foregroundColor(.blue)
+        NavigationStack {
+            ZStack(alignment: .bottomTrailing) {
+                VStack(alignment: .leading) {
+                    
+                    // Title
+                    Text("Classes")
+                        .font(.title)
+                        .bold()
+                        .padding(.horizontal)
+                        .padding(.top)
+                    
+                    // Class List
+                    List(classes) { item in
+                        HStack {
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(item.title)
+                                    .font(.headline)
+                                    .bold()
+                                Text(item.location)
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                                Text(item.schedule)
+                                    .font(.footnote)
+                                    .foregroundColor(.blue)
+                            }
+                            Spacer()
+                            Image(item.imageName)
+                                .resizable()
+                                .frame(width: 100, height: 60)
+                                .cornerRadius(8)
                         }
-                        Spacer()
-                        Image(item.imageName)
-                            .resizable()
-                            .frame(width: 100, height: 60)
-                            .cornerRadius(8)
+                        .padding(.vertical, 5)
                     }
-                    .padding(.vertical, 5)
+                    .listStyle(PlainListStyle())
                 }
-                .listStyle(PlainListStyle())
+                
+                // Floating Add Button
+                Button(action: {
+                    goToAddClassView = true
+                })
+                {
+                    Image(systemName: "plus")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .clipShape(Circle())
+                        .shadow(radius: 4)
+                }
+                .padding()
+               
+                .navigationDestination(isPresented: $goToAddClassView) {
+                                AddClassView()
+                            }
+                }
             }
-            
-            // Floating Add Button
-            Button(action: {
-                print("Add new class tapped")
-            }) {
-                Image(systemName: "plus")
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .clipShape(Circle())
-                    .shadow(radius: 4)
-            }
-            .padding()
+            //.navigationBarHidden(true)
         }
     }
-}
 
-struct TutorClassesView_Previews: PreviewProvider {
-    static var previews: some View {
-        TutorClassesView()
-    }
+
+#Preview {
+    
+    TutorClassesView()
+    
 }
