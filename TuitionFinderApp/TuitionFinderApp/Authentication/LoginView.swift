@@ -1,8 +1,16 @@
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
+import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
+      
 
 struct LoginView: View {
+    @StateObject private var googleAuthManager = GoogleAuthManager.shared
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var showError = false
     
        
        var body: some View {
@@ -107,29 +115,43 @@ struct LoginView: View {
                    )
                    
                    
-                   HStack {
-                       Image("GoogleLogo")
-                           .resizable()
-                           .aspectRatio(contentMode: .fit)
-                           .clipped()
-                           .clipShape(Circle())
-                           .frame(width: 33, height: 33)
-                       Text("Google")
-                           .font(.headline)
-                           .fontWeight(.semibold)
+                   Button(action: {
+                       googleAuthManager.signIn()
+                   }) {
+                       HStack {
+                           Image("GoogleLogo")
+                               .resizable()
+                               .aspectRatio(contentMode: .fit)
+                               .clipped()
+                               .clipShape(Circle())
+                               .frame(width: 33, height: 33)
+                           Text("Google")
+                               .font(.headline)
+                               .fontWeight(.semibold)
+                       }
+                       .frame(width: 120, height: 18)
+                       .frame(maxWidth: .infinity)
+                       .padding()
+                       .background(Color.white)
+                       .overlay(
+                           RoundedRectangle(cornerRadius: 25)
+                               .stroke(Color.black.opacity(0.7), lineWidth: 1)
+                       )
                    }
-                   .frame(width: 120, height: 18)
-                   .frame(maxWidth: .infinity)
-                   .padding()
-                   .background(Color.white)
-                   .overlay(
-                       RoundedRectangle(cornerRadius: 25)
-                           .stroke(Color.black.opacity(0.7), lineWidth: 1)
-                   )
                }
                .padding(.horizontal, 40)
                .padding(.bottom, 15)
                //Spacer()
+           }
+           .alert(isPresented: Binding(
+               get: { googleAuthManager.errorMessage != nil },
+               set: { _ in googleAuthManager.errorMessage = nil }
+           )) {
+               Alert(
+                   title: Text("Error"),
+                   message: Text(googleAuthManager.errorMessage ?? "Unknown error"),
+                   dismissButton: .default(Text("OK"))
+               )
            }
        }
    }
