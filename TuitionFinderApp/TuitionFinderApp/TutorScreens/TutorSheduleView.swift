@@ -7,11 +7,16 @@ struct TutorSheduleView: View {
         EventItem(title: "Physics", time: "10:30 AM - 12:30 PM", icon: "book")
     ]
     
+
+    
+
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             
             VStack(alignment: .leading) {
+
                 // MARK: - Header
+
                 HStack {
                     Text("Schedule")
                         .font(.title2)
@@ -21,13 +26,20 @@ struct TutorSheduleView: View {
                 .padding(.horizontal)
                 .padding(.top, 8)
                 
+
                 // MARK: - Tabs
+
+                
+
                 HStack {
                     Button(action: { selectedTab = "Calendar" }) {
                         Text("Calendar")
                             .font(.subheadline)
                             .bold()
                             .foregroundColor(selectedTab == "Calendar" ? .blue : .gray) // 🔑 color change
+
+               
+
                     }
                     
                     Spacer()
@@ -36,14 +48,22 @@ struct TutorSheduleView: View {
                         Text("List")
                             .font(.subheadline)
                             .bold()
+
                             .foregroundColor(selectedTab == "List" ? .blue : .gray) // 🔑 color change
+
+                          
+
                     }
                 }
                 .padding(.horizontal)
                 
                 Divider()
                 
+
                 // Calender and List tabs
+
+                
+
                 if selectedTab == "Calendar" {
                     CalendarTabView(events: events)
                 } else {
@@ -53,6 +73,7 @@ struct TutorSheduleView: View {
                 Spacer()
             }
             
+
             //Add Button
             AddButton {
                 print("Add Reminder tapped")
@@ -162,7 +183,6 @@ struct EventCard: View {
     }
 }
 
-// MARK: - Event Model
 struct EventItem: Identifiable {
     let id = UUID()
     let title: String

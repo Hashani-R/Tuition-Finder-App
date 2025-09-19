@@ -52,7 +52,7 @@ struct ClassDetailsView: View {
 
                 // Banner Image + Bookmark
                 ZStack(alignment: .topTrailing) {
-                    Image("TuitionClass")
+                    Image("TuitionClass2")
                         .resizable()
                         .scaledToFill()
                         .frame(height: 180)

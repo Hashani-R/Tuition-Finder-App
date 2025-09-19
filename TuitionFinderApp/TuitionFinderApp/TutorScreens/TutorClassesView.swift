@@ -83,7 +83,11 @@ struct TutorClassesView: View {
                             }
                 }
             }
+
             //.navigationBarHidden(true)
+
+            
+
         }
     }
 

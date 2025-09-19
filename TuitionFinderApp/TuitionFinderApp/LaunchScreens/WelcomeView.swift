@@ -34,6 +34,7 @@ struct WelcomeView: View {
                     .aspectRatio(contentMode: .fit)
                     .clipped()
                     .frame(width: 420, height: 400)
+                    .accessibilityLabel("Welcome illustration of Happy winners")
                 
                 
                 Spacer()
@@ -56,6 +57,8 @@ struct WelcomeView: View {
                 .cornerRadius(25)
                 .padding(.top, 7)
                 .padding(.horizontal, 40)
+                .accessibilityLabel("Login to your account")
+                
                 
                 .navigationDestination(isPresented: $goToLoginView) {
                                 LoginView()
@@ -68,6 +71,7 @@ struct WelcomeView: View {
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.top, 10)
+                .accessibilityLabel("Sign up for a new account")
                 
                 .navigationDestination(isPresented:
                 $goToSignUpView) {
@@ -76,6 +80,8 @@ struct WelcomeView: View {
                 
             }
             .padding(.bottom, 15)
+            .accessibilityElement(children: .contain)
+            
             //Spacer().frame(height: 10)
             
         }

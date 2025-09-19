@@ -15,6 +15,7 @@ struct SignUpView: View {
                     .scaledToFit()
                     .frame(height: 365)
                     .padding(.top, 30)
+                    .accessibilityLabel("Sign Up illustration")
                 
                 
                 Text("Sign Up")
@@ -38,6 +39,7 @@ struct SignUpView: View {
                     // .shadow(color: .gray.opacity(0.3), radius: 5, x: 0, y: 3)
                 }
                 .padding(.horizontal, 40)
+                .accessibilityLabel("Create a new account")
                 
                 .navigationDestination(isPresented: $goToCreateAccountView) {
                 CreateAccountView()
@@ -67,6 +69,7 @@ struct SignUpView: View {
                     )
                 }
                 .padding(.horizontal, 40)
+                .accessibilityLabel("Sign up with your Google account")
                 
                 
                 Button(action: {
@@ -95,6 +98,7 @@ struct SignUpView: View {
                     )
                 }
                 .padding(.horizontal, 40)
+                .accessibilityLabel("Sign up with your AppleID")
                 
                 Spacer()
                 

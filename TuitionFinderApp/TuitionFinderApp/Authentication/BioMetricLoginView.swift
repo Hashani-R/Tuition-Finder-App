@@ -16,6 +16,7 @@ struct BioMetricLoginView: View {
                     .scaledToFit()
                     .frame(height: 350)
                     .padding(.horizontal, 10)
+                    .accessibilityLabel("Login illustration")
                 
                 Spacer().frame(height: 10)
                 
@@ -63,6 +64,7 @@ struct BioMetricLoginView: View {
                         .cornerRadius(25)
                 }
                 .padding(.horizontal, 40)
+                .accessibilityLabel("Click to login")
                 
                 Spacer().frame(height: 20)
                 

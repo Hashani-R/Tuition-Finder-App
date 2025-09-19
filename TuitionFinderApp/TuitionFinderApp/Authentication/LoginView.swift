@@ -15,6 +15,7 @@ struct LoginView: View {
                    .scaledToFit()
                    .frame(height: 350)
                    .padding(.horizontal, 10)
+                   .accessibilityLabel("Login illustration")
                
                Spacer().frame(height: 10)
                
@@ -57,7 +58,7 @@ struct LoginView: View {
                Button(action: {
                    // Action goes here
                }) {
-                   Text("Login 1")
+                   Text("Login1")
                        .font(.headline)
                        .fontWeight(.semibold)
                        .foregroundColor(.white)
@@ -67,10 +68,11 @@ struct LoginView: View {
                        .cornerRadius(25)
                }
                .padding(.horizontal, 40)
+               //.accessibilityLabel("Login with Email")
                //------Tempory Change-----
                //---Add another login btn
                
-               Button(action: {
+               /*Button(action: {
                    // Action goes here
                }) {
                    Text("Login 2")
@@ -82,7 +84,7 @@ struct LoginView: View {
                        .background(Color.blue)
                        .cornerRadius(25)
                }
-               .padding(.horizontal, 40)
+               .padding(.horizontal, 40) */
                
                Spacer().frame(height: 25)
                
@@ -105,6 +107,7 @@ struct LoginView: View {
                        RoundedRectangle(cornerRadius: 25)
                            .stroke(Color.black.opacity(0.7), lineWidth: 1)
                    )
+                   .accessibilityLabel("Login with Apple ID")
                    
                    
                    HStack {
@@ -126,6 +129,7 @@ struct LoginView: View {
                        RoundedRectangle(cornerRadius: 25)
                            .stroke(Color.black.opacity(0.7), lineWidth: 1)
                    )
+                   .accessibilityLabel("Login with Gmail")
                }
                .padding(.horizontal, 40)
                .padding(.bottom, 15)
