@@ -34,9 +34,22 @@
 		E3B6EE192E76A3FF0034D7D8 /* TuitionFinderAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuitionFinderAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E30B1F3D2E7B3E6500395C70 /* Exceptions for "TuitionFinderApp" folder in "TuitionFinderApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E3B6EE012E76A3FE0034D7D8 /* TuitionFinderApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E3B6EE042E76A3FE0034D7D8 /* TuitionFinderApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E30B1F3D2E7B3E6500395C70 /* Exceptions for "TuitionFinderApp" folder in "TuitionFinderApp" target */,
+			);
 			path = TuitionFinderApp;
 			sourceTree = "<group>";
 		};
@@ -409,6 +422,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TuitionFinderApp/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to Unlock your data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -437,6 +452,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TuitionFinderApp/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to Unlock your data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct TutorMainScreenView: View {
     var body: some View {
         //NavigationStack{
             
@@ -9,26 +9,26 @@ struct MainView: View {
             
             TabView{
                 
-                HomeView()
+                TutorDashBoardView()
                     .tabItem {
                         Text("Home")
                         Image(systemName: "house")
                     }
                 
-                MapView()
+                TutorClassesView()
                 
                     .tabItem {
-                        Text("Map")
-                        Image(systemName: "map")
+                        Image(systemName: "play.rectangle")
+                        Text("Classes")
                     }
                 
-                BookmarksView()
+                TutorSheduleView()
                     .tabItem {
-                        Text("Bookmarks")
-                        Image(systemName: "bookmark")
+                        Image(systemName: "calendar")
+                        Text("Schedules")
                     }
                 
-                ProfileView()
+                TutorProfileView()
                     .tabItem {
                         Text("Profile")
                         Image(systemName: "person.circle")
@@ -40,5 +40,5 @@ struct MainView: View {
 //}
 
 #Preview {
-    MainView()
+    TutorMainScreenView()
 }
